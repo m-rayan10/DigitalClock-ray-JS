@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+<html> 
+  
+<head> 
+    <title>Digital Clock</title> 
+  
+    <style> 
+        #dclock { 
+            background-color: black;
+            color:white;
+            text-decoration: none;
+            width: 100%;
+            height: 350px;
+            padding-top: 300px; 
+            font-size: 100px;   
+            text-align: center;  
+        }
+        h1{
+            text-align: center;
+
+        } 
+    </style> 
+</head> 
+  
+<body> 
+    <h1>Digital Clock</h1>
+    <div id="dclock">6:27:39</div> 
+  
+    <script> 
+        setInterval(showTime, 1000); 
+        function showTime() { 
+            let time = new Date(); 
+            let hour = time.getHours(); 
+            let min = time.getMinutes(); 
+            let sec = time.getSeconds(); 
+            am_pm = "AM"; 
+  
+            if (hour > 12) { 
+                hour -= 12; 
+                am_pm = "PM"; 
+            } 
+            if (hour == 0) { 
+                hr = 12; 
+                am_pm = "AM"; 
+            } 
+  
+            hour = hour < 10 ? "0" + hour : hour; 
+            min = min < 10 ? "0" + min : min; 
+            sec = sec < 10 ? "0" + sec : sec; 
+  
+            let currentTime = hour + ":"  
+                + min + ":" + sec + am_pm; 
+  
+            document.getElementById("dclock") 
+                .innerHTML = currentTime; 
+        } 
+  
+        showTime(); 
+    </script> 
+</body> 
+  
+</html>
